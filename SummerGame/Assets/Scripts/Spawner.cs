@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         {
             basicEnemy.moveSpeed = Random.Range(1.5f, 4.0f);
             randSpawnValue = Random.Range(0, spawners.Length);
-            Instantiate(monster, spawners[randSpawnValue].position, Quaternion.identity);
+            Instantiate(monster, spawners[randSpawnValue].position, monster.transform.rotation);
             SpawnCount++;
         }
     }

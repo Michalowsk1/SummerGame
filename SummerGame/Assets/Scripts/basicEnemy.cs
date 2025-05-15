@@ -61,5 +61,10 @@ public class basicEnemy : MonoBehaviour
         {
             hit = true;
         }
+
+        else if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit");
+        }
     }
 }
