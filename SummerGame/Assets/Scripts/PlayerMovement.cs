@@ -53,9 +53,11 @@ public class PlayerMovement : MonoBehaviour
             player.transform.position = (new Vector2(player.transform.position.x + speed, player.transform.position.y));
         }
 
+        else rb.velocity = Vector3.zero;
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 0.15f;
+            speed = 0.10f;
         }
         else speed = 0.05f;
     }
@@ -87,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerLooks[i].SetActive(false);
             }
             PlayerLooks[2].SetActive(true);
-            player.transform.localScale = new Vector3(2, 2, 2);
+            player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -97,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerLooks[i].SetActive(false);
             }
             PlayerLooks[2].SetActive(true);
-            player.transform.localScale = new Vector3(-2, 2, 2);
+            player.transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
         }
     }
 
