@@ -9,6 +9,10 @@ public class basicEnemy : MonoBehaviour
     [SerializeField] GameObject hitFrame;
     [SerializeField] GameObject deathAnim;
 
+    [SerializeField] GameObject healthBar;
+
+    [SerializeField] GameObject pointDrop;
+
     public static float moveSpeed;
     float hp;
     float dmg;
@@ -24,6 +28,7 @@ public class basicEnemy : MonoBehaviour
         target = GameObject.Find("/Player");
         hit = false;
         hitFrame.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -37,14 +42,22 @@ public class basicEnemy : MonoBehaviour
         {
             hp--;
             StartCoroutine(HIT());
+            healthBar.transform.localScale = new Vector3(healthBar.transform.localScale.x - 0.25f, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
             hit = false;
         }
 
-        if(hp <= 0)
+        if (hp <= 0)
         {
             Destroy(gameObject);
             GameObject Prefab = Instantiate(deathAnim, gameObject.transform.position, Quaternion.identity);
             Destroy(Prefab, 0.5f);
+
+            for(int i = 0; i < Random.Range(1, 4); i++)
+            {
+                GameObject loot = Instantiate(pointDrop, gameObject.transform.position, Quaternion.identity);
+                Rigidbody2D lootrb = loot.GetComponent<Rigidbody2D>();
+                lootrb.velocity = (new Vector2(Random.Range(-20,20), Random.Range(-20,20)));
+            }
         }
 
     }
