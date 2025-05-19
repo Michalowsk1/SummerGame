@@ -58,6 +58,8 @@ public class basicEnemy : MonoBehaviour
                 Rigidbody2D lootrb = loot.GetComponent<Rigidbody2D>();
                 lootrb.velocity = (new Vector2(Random.Range(-20,20), Random.Range(-20,20)));
             }
+
+            Spawner.SpawnCount--;
         }
 
     }
