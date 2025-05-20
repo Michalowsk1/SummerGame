@@ -18,7 +18,6 @@ public class bullet : MonoBehaviour
 
         else if (collision.gameObject.tag == "basicEnemy")
         {
-            //basicEnemy.hp--;
             Destroy(gameObject);
         }
     }

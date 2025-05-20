@@ -14,12 +14,11 @@ public class basicEnemy : MonoBehaviour
     [SerializeField] GameObject pointDrop;
 
     public static float moveSpeed;
+
+    public static float knockbackMoveSpeed = 25.0f;
     float hp;
     float dmg;
     bool hit;
-
-    Vector3 ownPos;
-    Vector2 direction;
     void Start()
     {
         hp = 3.0f;
@@ -34,10 +33,6 @@ public class basicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = (target.transform.position - ownPos).normalized;
-        ownPos = gameObject.transform.position;
-        rb.velocity = (new Vector2(direction.x, direction.y) * moveSpeed);
-
         if(hit)
         {
             hp--;
@@ -75,11 +70,6 @@ public class basicEnemy : MonoBehaviour
         if(collision.gameObject.tag == "bullet")
         {
             hit = true;
-        }
-
-        else if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Hit");
         }
     }
 }

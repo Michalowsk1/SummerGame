@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerAttack : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
+
+    public Slider healthSlider;
     public Transform spawnPoint;
     public Transform PlayerPos;
 
@@ -25,6 +28,7 @@ public class playerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthSlider.value = 1 + -hp / 10;
         Shooting();
     }
 
@@ -40,6 +44,14 @@ public class playerAttack : MonoBehaviour
             GameObject bullet = Instantiate(prefab, spawnPoint.position, Quaternion.identity);
             Rigidbody2D bulletrb = bullet.GetComponent<Rigidbody2D>();
             bulletrb.velocity = (new Vector3(direction.x, direction.y, 0) * 15);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "basicEnemy")
+        {
+            hp--;
         }
     }
 }
