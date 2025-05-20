@@ -9,6 +9,8 @@ public class healing : MonoBehaviour
     [SerializeField] GameObject speechbubble;
     [SerializeField] GameObject player;
 
+    public Animation popIn;
+
 
     void Start()
     {

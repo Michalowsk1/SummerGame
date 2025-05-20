@@ -17,12 +17,14 @@ public class playerAttack : MonoBehaviour
     Vector2 direction;
 
     public static float hp;
+    public static float armour;
     public static float bulletDamage;
     // Start is called before the first frame update
     void Start()
     {
         hp = 10;
         bulletDamage = 1.0f;
+        armour = 0;
     }
 
     // Update is called once per frame
@@ -51,7 +53,19 @@ public class playerAttack : MonoBehaviour
     {
         if(collision.gameObject.tag == "basicEnemy")
         {
-            hp--;
+            hp = (hp - 1) + armour;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if((collision.gameObject.tag == "heal"))
+        {
+            if (Input.GetKey(KeyCode.Space) && PointSystem.pointCount >= 5)
+            {
+                PointSystem.pointCount -= 50;
+                hp = 10;
+            }
         }
     }
 }
