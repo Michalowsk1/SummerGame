@@ -9,7 +9,7 @@ public class PointSystem : MonoBehaviour
     public static int pointCount;
     void Start()
     {
-        pointCount = 0;
+        pointCount = 10000;
     }
 
     // Update is called once per frame

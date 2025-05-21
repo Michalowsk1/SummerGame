@@ -18,20 +18,32 @@ public class playerAttack : MonoBehaviour
 
     public static float hp;
     public static float armour;
+    public static float dmg;
+    public static float hpRecover;
     public static float bulletDamage;
+    float damageTaken;
+
+    float Timer;
     // Start is called before the first frame update
     void Start()
     {
+        dmg = 1;
         hp = 10;
         bulletDamage = 1.0f;
-        armour = 0;
+        armour = 0.5f;
+        hpRecover = 30;
     }
 
     // Update is called once per frame
     void Update()
     {
         healthSlider.value = 1 + -hp / 10;
-        Shooting();
+        if (ShopOpen.open == false)
+        {
+            Shooting();
+            Healing();
+        }
+        else { }
     }
 
     void Shooting()
@@ -49,11 +61,24 @@ public class playerAttack : MonoBehaviour
         }
     }
 
+    void Healing()
+    {
+        Timer = Timer + Time.deltaTime;
+
+        if(Timer >= hpRecover)
+        {
+            hp += 0.1f;
+            Timer = 0;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "basicEnemy")
         {
-            hp = (hp - 1) + armour;
+            damageTaken = -1 + armour;
+            if(damageTaken > 0) damageTaken = 0;
+            hp += damageTaken;
         }
     }
 
@@ -61,7 +86,7 @@ public class playerAttack : MonoBehaviour
     {
         if((collision.gameObject.tag == "heal"))
         {
-            if (Input.GetKey(KeyCode.Space) && PointSystem.pointCount >= 5)
+            if (Input.GetKey(KeyCode.Space) && PointSystem.pointCount >= 50)
             {
                 PointSystem.pointCount -= 50;
                 hp = 10;

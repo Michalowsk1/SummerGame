@@ -27,8 +27,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Controls();
-        Turning();
+        if (ShopOpen.open == false)
+        {
+            Controls();
+            Turning();
+        }
+        else { }
     }
 
     void Controls()
