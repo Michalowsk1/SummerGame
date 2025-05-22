@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class upgradePurchase : MonoBehaviour
 {
-    public Button Healing;
 
     int DamageUpgradeCost = 10;
     int ArmourUpgradeCost = 10;
@@ -74,16 +73,10 @@ public class upgradePurchase : MonoBehaviour
 
             else if (hpupgradeCount >= 8)
             {
-                Healing.enabled = false;
-                HealingCost.text = "MAX";
+
             }
 
             
         }
-    }
-
-    private void Update()
-    {
-        Debug.Log(playerAttack.hpRecover);
     }
 }

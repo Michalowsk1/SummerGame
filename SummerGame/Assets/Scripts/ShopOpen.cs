@@ -19,7 +19,6 @@ public class ShopOpen : MonoBehaviour
         ShopIcon.SetActive(true);
         upgrades.SetActive(true);
         abilities.SetActive(false);
-        Shop.SetActive(false);
     }
 
     public void OpenShop()

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class playerAttack : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
+    [SerializeField] GameObject shop;
 
     public Slider healthSlider;
     public Transform spawnPoint;
@@ -27,6 +28,7 @@ public class playerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shop.SetActive(false);
         dmg = 1;
         hp = 10;
         bulletDamage = 1.0f;
