@@ -11,7 +11,7 @@ public class bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "bar" || collision.gameObject.tag == "cave")
+        if(collision.gameObject.tag == "bar" || collision.gameObject.tag == "cave" || collision.gameObject.tag == "heal")
         {
             Destroy(gameObject);
         }

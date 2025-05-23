@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3156830544453734107}
   - component: {fileID: -8972808935264728349}
   - component: {fileID: -6318185609468283500}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy
   m_TagString: basicEnemy
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596505239782362232}
   - component: {fileID: 297013797158500096}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: backHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8787315948192757042}
   - component: {fileID: 7278143288503108024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FrontHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9114248682988597282}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,6 +491,10 @@ PrefabInstance:
     - target: {fileID: 8286019592076621488, guid: 298af3243cbb2494a9d773f701e77109, type: 3}
       propertyPath: m_Name
       value: hitFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286019592076621488, guid: 298af3243cbb2494a9d773f701e77109, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8286019592076621488, guid: 298af3243cbb2494a9d773f701e77109, type: 3}
       propertyPath: m_IsActive

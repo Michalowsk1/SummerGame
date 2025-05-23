@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5112095776275767833}
   - component: {fileID: 5418863798667190413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1176880507804266109}
   - component: {fileID: 8449159774988743739}
   - component: {fileID: 441402055441598635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: enemy 1
   m_TagString: flyingEnemy
   m_Icon: {fileID: 0}
@@ -234,6 +234,7 @@ MonoBehaviour:
   healthBar: {fileID: 3034435385596075822}
   death: {fileID: 603903829518449308, guid: b8c32731e42f5374a90e140651becfce, type: 3}
   pointDrop: {fileID: 3870887431790080150, guid: 7f0a9c18c25c1d54a82c8ccea438b8a1, type: 3}
+  projectile: {fileID: 0}
   target: {fileID: 0}
   agent: {fileID: 156147859634019300}
 --- !u!50 &8449159774988743739
@@ -318,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2573998915525494444}
   - component: {fileID: 2567657224649381551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: white
   m_TagString: Untagged
   m_Icon: {fileID: 0}

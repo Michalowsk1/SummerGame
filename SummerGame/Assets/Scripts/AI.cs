@@ -19,6 +19,7 @@ public class AI : MonoBehaviour
     {
         target = GameObject.Find("/Player");
         follow = true;
+        agent.speed = Random.Range(2, 6);
     }
 
     // Update is called once per frame

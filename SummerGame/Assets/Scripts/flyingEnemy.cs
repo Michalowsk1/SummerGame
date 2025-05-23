@@ -13,11 +13,15 @@ public class flyingEnemy : MonoBehaviour
     [SerializeField] GameObject death;
     [SerializeField] GameObject pointDrop;
 
+    [SerializeField] GameObject projectile;
+
     [SerializeField] GameObject target;
 
     public NavMeshAgent agent;
     float hp;
     bool hit = false;
+
+    float timer;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class flyingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Attack();
 
         transform.eulerAngles = new Vector3(target.transform.rotation.x, target.transform.rotation.y, 25.0f);
 
@@ -52,6 +57,18 @@ public class flyingEnemy : MonoBehaviour
                 Rigidbody2D lootrb = loot.GetComponent<Rigidbody2D>();
                 lootrb.velocity = (new Vector2(Random.Range(-50, 50), Random.Range(-50, 50)));
             }
+        }
+    }
+
+
+    void Attack()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > Random.Range(3, 15))
+        {
+            Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
+            timer = 0;
         }
     }
 

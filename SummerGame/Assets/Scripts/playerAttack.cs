@@ -76,19 +76,26 @@ public class playerAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "basicEnemy")
+        if(collision.gameObject.tag == "basicEnemy" || collision.gameObject.tag == "flyingEnemy")
         {
             damageTaken = -1 + armour;
             if(damageTaken > 0) damageTaken = 0;
+            hp += damageTaken;
+        }
+
+        else if (collision.gameObject.tag == "projectile")
+        {
+            damageTaken = -2 + armour;
+            if (damageTaken > 0) damageTaken = 0;
             hp += damageTaken;
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if((collision.gameObject.tag == "heal"))
+        if ((collision.gameObject.tag == "heal"))
         {
-            if (Input.GetKey(KeyCode.Space) && PointSystem.pointCount >= 50)
+            if (Input.GetKey(KeyCode.Space) && PointSystem.pointCount >= 50 && hp != 10)
             {
                 PointSystem.pointCount -= 50;
                 hp = 10;
