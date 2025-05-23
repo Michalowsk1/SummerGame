@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
 {
     public Transform[] spawners;
     [SerializeField] GameObject monster;
+    [SerializeField] GameObject FlyingMonster;
     int randSpawnValue;
 
     float time;
@@ -14,6 +15,8 @@ public class Spawner : MonoBehaviour
 
     public static int SpawnCount;
     int entityLimit;
+
+    int enemyChooser;
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +30,23 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         time = time + Time.deltaTime;
+
+        enemyChooser = Random.Range(0, 6);
         if((spawnFrequency <= time) && SpawnCount <= entityLimit)
         {
-            basicEnemy.moveSpeed = Random.Range(1.5f, 4.0f);
-            randSpawnValue = Random.Range(0, spawners.Length);
-            Instantiate(monster, spawners[randSpawnValue].position, monster.transform.rotation);
-            time = 0;
-            SpawnCount++;
+            if (enemyChooser <= 4)
+            {
+                randSpawnValue = Random.Range(0, spawners.Length);
+                Instantiate(monster, spawners[randSpawnValue].position, monster.transform.rotation);
+            }
+
+            else
+            {
+                randSpawnValue = Random.Range(0, spawners.Length);
+                Instantiate(FlyingMonster, spawners[randSpawnValue].position, monster.transform.rotation);
+            }
+                time = 0;
+                SpawnCount++;
 
         }
     }

@@ -28,7 +28,7 @@ public class AI : MonoBehaviour
 
         if (follow)
         {
-            agent.SetDestination(target.transform.position);
+            agent.SetDestination((target.transform.position));
         }
     }
 }
