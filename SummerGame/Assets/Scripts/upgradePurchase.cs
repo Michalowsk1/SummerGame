@@ -33,7 +33,7 @@ public class upgradePurchase : MonoBehaviour
         if (PointSystem.pointCount >= ArmourUpgradeCost)
         {
             PointSystem.pointCount -= ArmourUpgradeCost;
-            playerAttack.armour = playerAttack.armour * 2;
+            playerAttack.armour = playerAttack.armour * 1.25f;
             ArmourUpgradeCost = ArmourUpgradeCost + 20;
             armourCost.text = "x " + ArmourUpgradeCost;
         } 
